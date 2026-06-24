@@ -6,7 +6,9 @@ import {
   Activity, CheckCircle2, XCircle, AlertTriangle, ShieldAlert, Cpu, Timer, RefreshCw, HelpCircle, Tag,
   KeyRound, LogOut,
 } from 'lucide-react'
-import { getMetrics, getLogs, getTraces, getAttacks, getToken, adminLogout } from '../api'
+import {
+  getMetrics, getLogs, getTraces, getAttacks, getSettings, updateSettings, getToken, adminLogout,
+} from '../api'
 import { DecisionBadge } from './ui'
 import TraceDrawer from './TraceDrawer'
 import { AdminLogin, ChangePasswordModal } from './AdminAuth'
@@ -34,14 +36,34 @@ export default function Admin() {
   const [auto, setAuto] = useState(false)
   const [authed, setAuthed] = useState(Boolean(getToken()))
   const [showChangePw, setShowChangePw] = useState(false)
+  const [retriesEnabled, setRetriesEnabled] = useState(true)
+  const [savingRetries, setSavingRetries] = useState(false)
 
   async function refresh() {
     try {
-      const [m, l, t, a] = await Promise.all([getMetrics(), getLogs(), getTraces(), getAttacks()])
+      const [m, l, t, a, s] = await Promise.all([
+        getMetrics(), getLogs(), getTraces(), getAttacks(), getSettings(),
+      ])
       setMetrics(m); setLogs(l); setTraces(t); setAttacks(a)
+      setRetriesEnabled(s.retries_enabled)
       setAuthed(true)
     } catch (e) {
       if (e.code === 401) setAuthed(false)
+    }
+  }
+
+  async function toggleRetries() {
+    const next = !retriesEnabled
+    setRetriesEnabled(next)  // optimistic
+    setSavingRetries(true)
+    try {
+      const s = await updateSettings({ retries_enabled: next })
+      setRetriesEnabled(s.retries_enabled)
+    } catch (e) {
+      setRetriesEnabled(!next)  // revert on failure
+      if (e.code === 401) setAuthed(false)
+    } finally {
+      setSavingRetries(false)
     }
   }
 
@@ -72,6 +94,19 @@ export default function Admin() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h2 className="font-display text-lg font-semibold text-slate-100">Observability</h2>
         <div className="flex items-center gap-2">
+          <button
+            onClick={toggleRetries}
+            disabled={savingRetries}
+            title="When off, the agent makes a single LLM attempt and does not retry on error."
+            className={`flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs transition disabled:opacity-50 ${
+              retriesEnabled
+                ? 'border-emerald-400/30 bg-emerald-500/10 text-emerald-200 hover:bg-emerald-500/20'
+                : 'border-white/10 bg-white/5 text-slate-400 hover:bg-white/10'
+            }`}
+          >
+            <RefreshCw size={13} className={savingRetries ? 'animate-spin' : ''} />
+            Retries {retriesEnabled ? 'on' : 'off'}
+          </button>
           <label className="flex cursor-pointer items-center gap-2 text-sm text-slate-400">
             <input type="checkbox" checked={auto} onChange={(e) => setAuto(e.target.checked)} className="accent-indigo-500" />
             Auto-refresh

@@ -5,7 +5,7 @@ from fastapi import Depends, FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-from backend import auth
+from backend import auth, settings
 from backend.agent import refund_agent
 from backend.store import load_store, save_store
 from backend.tools import _load_customers
@@ -28,6 +28,8 @@ _counter = {"n": _state["counter"]}
 _admin = {"auth": _state.get("admin_auth") or auth.default_auth_record()}
 _admin_tokens: set[str] = set()
 
+settings.init(_state.get("settings"))
+
 
 def _persist() -> None:
     """Mirror the current in-memory stores to disk."""
@@ -37,6 +39,7 @@ def _persist() -> None:
         "attack_logs": attack_logs,
         "counter": _counter["n"],
         "admin_auth": _admin["auth"],
+        "settings": settings.snapshot(),
     })
 
 
@@ -220,6 +223,22 @@ def admin_change_password(req: ChangePasswordRequest, _: str = Depends(require_a
     fresh = auth.new_token()
     _admin_tokens.add(fresh)
     return {"token": fresh}
+
+
+class SettingsUpdate(BaseModel):
+    retries_enabled: bool
+
+
+@app.get("/admin/settings")
+def get_settings(_: str = Depends(require_admin)):
+    return settings.snapshot()
+
+
+@app.put("/admin/settings")
+def update_settings(req: SettingsUpdate, _: str = Depends(require_admin)):
+    settings.set("retries_enabled", req.retries_enabled)
+    _persist()
+    return settings.snapshot()
 
 
 @app.get("/admin/logs")

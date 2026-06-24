@@ -34,6 +34,19 @@ export const getMetrics = () => jget('/admin/metrics', { auth: true })
 export const getLogs = () => jget('/admin/logs', { auth: true })
 export const getTraces = () => jget('/admin/traces', { auth: true })
 export const getAttacks = () => jget('/admin/attacks', { auth: true })
+export const getSettings = () => jget('/admin/settings', { auth: true })
+
+export async function updateSettings(patch) {
+  const t = getToken()
+  const r = await fetch(`${BASE}/admin/settings`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${t}` },
+    body: JSON.stringify(patch),
+  })
+  if (r.status === 401) { setToken(null); throw new Unauthorized() }
+  if (!r.ok) throw new Error(await detail(r, 'Could not update settings.'))
+  return r.json()
+}
 
 export async function adminLogin(password) {
   const r = await fetch(`${BASE}/admin/login`, {

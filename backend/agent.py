@@ -1,4 +1,5 @@
 import json
+import os
 import time
 from typing import Annotated, Optional, TypedDict
 
@@ -19,12 +20,18 @@ from langchain_openai import ChatOpenAI
 from langgraph.graph import END, START, StateGraph
 from langgraph.graph.message import add_messages
 
+from backend import settings
 from backend.injection import heuristic_screen, screen_message
 from backend.tools import TOOL_SCHEMAS, dispatch_tool, check_refund_eligibility, get_customer
 
 MODEL = "gpt-4o-mini"
 MAX_STEPS = 6
 MAX_RETRIES = 3
+
+# Demo-only: when set (e.g. DEMO_FAIL_FIRST=1), fail the first N LLM attempts of
+# each request with a simulated transient error so retries visibly fire. Off (0)
+# by default — has no effect on normal operation.
+_DEMO_FAIL_FIRST = int(os.environ.get("DEMO_FAIL_FIRST", "0"))
 
 llm = ChatOpenAI(model=MODEL, temperature=0, max_retries=0)
 agent_llm = llm.bind_tools(TOOL_SCHEMAS)
@@ -118,10 +125,13 @@ def _elapsed_ms(trace: dict) -> int:
 
 
 def _invoke_with_retry(messages: list[BaseMessage], trace: dict) -> AIMessage:
+    max_attempts = MAX_RETRIES if settings.get("retries_enabled", True) else 1
     last_err = None
-    for attempt in range(1, MAX_RETRIES + 1):
+    for attempt in range(1, max_attempts + 1):
         start = time.time()
         try:
+            if _DEMO_FAIL_FIRST and trace["retries"] < _DEMO_FAIL_FIRST:
+                raise RuntimeError("Simulated transient upstream error (DEMO_FAIL_FIRST)")
             ai: AIMessage = agent_llm.invoke(messages)
             latency_ms = round((time.time() - start) * 1000)
             pt, ct, tt = _accumulate_tokens(trace, ai.usage_metadata)
@@ -143,10 +153,10 @@ def _invoke_with_retry(messages: list[BaseMessage], trace: dict) -> AIMessage:
                 "attempt": attempt,
                 "latency_ms": latency_ms,
                 "error": last_err,
-                "action": "retrying" if attempt < MAX_RETRIES else "giving_up",
+                "action": "retrying" if attempt < max_attempts else "giving_up",
             })
             time.sleep(0.5 * attempt)
-    raise RuntimeError(f"LLM call failed after {MAX_RETRIES} attempts: {last_err}")
+    raise RuntimeError(f"LLM call failed after {max_attempts} attempts: {last_err}")
 
 
 def reconcile(model_decision: dict | None, customer_id: str, order_id: str | None,

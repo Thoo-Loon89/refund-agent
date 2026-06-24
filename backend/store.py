@@ -12,7 +12,7 @@ _lock = threading.Lock()
 
 def _empty() -> dict:
     return {"logs": [], "traces": {}, "attack_logs": [], "counter": 0,
-            "admin_auth": None}
+            "admin_auth": None, "settings": {}}
 
 
 def load_store() -> dict:
