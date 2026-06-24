@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AI Refund Agent
 
 An agentic customer-support system that approves, denies, or escalates e-commerce
@@ -174,3 +175,7 @@ boundaries:
 - Evaluation suite already runs in CI (`.github/workflows/eval.yml` runs the
   offline checks on every push/PR); next step is adding the `--live` agent loop
   as a gated job with a CI-provided key.
+=======
+# refund-agent
+AI-powered customer support agent for e-commerce refunds built with FastAPI, LLM tool-calling, and a React. Enforces strict refund policy rules using a synthetic CRM, resists prompt injection, and provides full execution traces with tool I/O, retries, and observability logs.
+>>>>>>> d3d819f58af9280880a250cf15411f90c971fa78
