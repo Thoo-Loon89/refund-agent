@@ -26,7 +26,7 @@ from backend.tools import TOOL_SCHEMAS, dispatch_tool, check_refund_eligibility,
 
 MODEL = "gpt-4o-mini"
 MAX_STEPS = 6
-MAX_RETRIES = 3
+MAX_RETRIES = 5
 
 # Demo-only: when set (e.g. DEMO_FAIL_FIRST=1), fail the first N LLM attempts of
 # each request with a simulated transient error so retries visibly fire. Off (0)
