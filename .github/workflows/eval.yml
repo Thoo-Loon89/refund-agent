@@ -25,5 +25,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run offline eval suite (no API key needed)
+      - name: Run offline eval suite
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python -m evals.run_eval
