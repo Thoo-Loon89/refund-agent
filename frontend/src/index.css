@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-ink-950 text-slate-200 font-sans antialiased;
+    background-image:
+      radial-gradient(60rem 60rem at 110% -10%, rgba(99, 102, 241, 0.12), transparent 60%),
+      radial-gradient(50rem 50rem at -10% 110%, rgba(217, 70, 239, 0.1), transparent 55%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.035] border border-white/10 backdrop-blur-xl;
+  }
+  .glass-strong {
+    @apply bg-white/[0.06] border border-white/10 backdrop-blur-xl;
+  }
+  .input-dark {
+    @apply w-full rounded-xl bg-ink-850 border border-white/10 px-3.5 py-2.5 text-sm text-slate-100
+           outline-none transition focus:border-indigo-400/60 focus:ring-2 focus:ring-indigo-500/20
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-grad {
+    @apply rounded-xl bg-gradient-to-r from-indigo-500 to-fuchsia-500 px-4 py-2.5 text-sm font-semibold
+           text-white shadow-lg shadow-indigo-900/40 transition hover:brightness-110
+           disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:brightness-100;
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+select option {
+  background-color: #111623;
+  color: #e2e8f0;
+}

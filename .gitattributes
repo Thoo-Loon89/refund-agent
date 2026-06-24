@@ -1,0 +1,13 @@
+# Normalize line endings: store everything as LF in the repo.
+# Stops the "LF will be replaced by CRLF" warnings on Windows and keeps
+# the repo consistent across macOS / Linux / Windows checkouts.
+* text=auto eol=lf
+
+# Treat these as binary (never convert line endings).
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary

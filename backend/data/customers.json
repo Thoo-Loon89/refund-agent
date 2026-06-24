@@ -1,0 +1,671 @@
+[
+  {
+    "customer_id": "C001",
+    "name": "John Miller",
+    "email": "john.miller@email.com",
+    "phone": "+1-303-555-0101",
+    "tier": "gold",
+    "orders": [
+      {
+        "order_id": "O1001",
+        "item": "Nike Air Max 270",
+        "category": "shoes",
+        "price": 150,
+        "order_date": "2026-05-30",
+        "delivered_date": "2026-06-05",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      },
+      {
+        "order_id": "O1055",
+        "item": "Apple AirPods Pro",
+        "category": "electronics",
+        "price": 249,
+        "order_date": "2026-04-14",
+        "delivered_date": "2026-04-20",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "paypal"
+      }
+    ]
+  },
+  {
+    "customer_id": "C002",
+    "name": "Sarah Johnson",
+    "email": "sarah.j@email.com",
+    "phone": "+1-303-555-0102",
+    "tier": "silver",
+    "orders": [
+      {
+        "order_id": "O1002",
+        "item": "Zara Winter Jacket",
+        "category": "clothing",
+        "price": 120,
+        "order_date": "2026-06-04",
+        "delivered_date": "2026-06-10",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      }
+    ]
+  },
+  {
+    "customer_id": "C003",
+    "name": "Michael Chen",
+    "email": "michael.chen@email.com",
+    "phone": "+1-303-555-0103",
+    "tier": "gold",
+    "orders": [
+      {
+        "order_id": "O1003",
+        "item": "Samsung Galaxy S23",
+        "category": "electronics",
+        "price": 899,
+        "order_date": "2026-06-01",
+        "delivered_date": "2026-06-07",
+        "status": "delivered",
+        "final_sale": true,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      }
+    ]
+  },
+  {
+    "customer_id": "C004",
+    "name": "Emily Davis",
+    "email": "emily.davis@email.com",
+    "phone": "+1-303-555-0104",
+    "tier": "bronze",
+    "orders": [
+      {
+        "order_id": "O1004",
+        "item": "Adidas Running Shoes",
+        "category": "shoes",
+        "price": 95,
+        "order_date": "2026-05-22",
+        "delivered_date": "2026-05-28",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": true,
+        "payment_method": "debit_card"
+      }
+    ]
+  },
+  {
+    "customer_id": "C005",
+    "name": "David Wilson",
+    "email": "david.wilson@email.com",
+    "phone": "+1-303-555-0105",
+    "tier": "gold",
+    "orders": [
+      {
+        "order_id": "O1005",
+        "item": "MacBook Air M2",
+        "category": "electronics",
+        "price": 1199,
+        "order_date": "2026-05-28",
+        "delivered_date": "2026-06-01",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      }
+    ]
+  },
+  {
+    "customer_id": "C006",
+    "name": "Olivia Brown",
+    "email": "olivia.brown@email.com",
+    "phone": "+1-303-555-0106",
+    "tier": "silver",
+    "orders": [
+      {
+        "order_id": "O1006",
+        "item": "H&M Hoodie",
+        "category": "clothing",
+        "price": 40,
+        "order_date": "2026-06-08",
+        "delivered_date": "2026-06-14",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "paypal"
+      }
+    ]
+  },
+  {
+    "customer_id": "C007",
+    "name": "James Anderson",
+    "email": "james.anderson@email.com",
+    "phone": "+1-303-555-0107",
+    "tier": "bronze",
+    "orders": [
+      {
+        "order_id": "O1007",
+        "item": "Logitech MX Master Mouse",
+        "category": "electronics",
+        "price": 99,
+        "order_date": "2026-06-02",
+        "delivered_date": "2026-06-08",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      }
+    ]
+  },
+  {
+    "customer_id": "C008",
+    "name": "Sophia Martinez",
+    "email": "sophia.martinez@email.com",
+    "phone": "+1-303-555-0108",
+    "tier": "gold",
+    "orders": [
+      {
+        "order_id": "O1008",
+        "item": "Nike Sports Bra",
+        "category": "clothing",
+        "price": 60,
+        "order_date": "2026-06-09",
+        "delivered_date": "2026-06-15",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      }
+    ]
+  },
+  {
+    "customer_id": "C009",
+    "name": "Daniel Taylor",
+    "email": "daniel.taylor@email.com",
+    "phone": "+1-303-555-0109",
+    "tier": "silver",
+    "orders": [
+      {
+        "order_id": "O1009",
+        "item": "Sony WH-1000XM5 Headphones",
+        "category": "electronics",
+        "price": 399,
+        "order_date": "2026-06-06",
+        "delivered_date": "2026-06-12",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "paypal"
+      }
+    ]
+  },
+  {
+    "customer_id": "C010",
+    "name": "Isabella Thomas",
+    "email": "isabella.thomas@email.com",
+    "phone": "+1-303-555-0110",
+    "tier": "bronze",
+    "orders": [
+      {
+        "order_id": "O1010",
+        "item": "Uniqlo T-Shirt Pack",
+        "category": "clothing",
+        "price": 25,
+        "order_date": "2026-02-24",
+        "delivered_date": "2026-03-01",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "debit_card"
+      }
+    ]
+  },
+  {
+    "customer_id": "C011",
+    "name": "Ethan White",
+    "email": "ethan.white@email.com",
+    "phone": "+1-303-555-0111",
+    "tier": "gold",
+    "orders": [
+      {
+        "order_id": "O1011",
+        "item": "Dell XPS 13 Laptop",
+        "category": "electronics",
+        "price": 1299,
+        "order_date": "2026-05-26",
+        "delivered_date": "2026-06-01",
+        "status": "delivered",
+        "final_sale": true,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      }
+    ]
+  },
+  {
+    "customer_id": "C012",
+    "name": "Mia Harris",
+    "email": "mia.harris@email.com",
+    "phone": "+1-303-555-0112",
+    "tier": "silver",
+    "orders": [
+      {
+        "order_id": "O1012",
+        "item": "Puma Sneakers",
+        "category": "shoes",
+        "price": 110,
+        "order_date": "2026-06-03",
+        "delivered_date": "2026-06-09",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "paypal"
+      }
+    ]
+  },
+  {
+    "customer_id": "C013",
+    "name": "Alexander King",
+    "email": "alex.king@email.com",
+    "phone": "+1-303-555-0113",
+    "tier": "bronze",
+    "orders": [
+      {
+        "order_id": "O1013",
+        "item": "Amazon Echo Dot",
+        "category": "electronics",
+        "price": 49,
+        "order_date": "2026-06-07",
+        "delivered_date": "2026-06-13",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      }
+    ]
+  },
+  {
+    "customer_id": "C014",
+    "name": "Charlotte Lee",
+    "email": "charlotte.lee@email.com",
+    "phone": "+1-303-555-0114",
+    "tier": "gold",
+    "orders": [
+      {
+        "order_id": "O1014",
+        "item": "Gucci Handbag",
+        "category": "luxury",
+        "price": 2200,
+        "order_date": "2026-06-02",
+        "delivered_date": "2026-06-08",
+        "status": "delivered",
+        "final_sale": true,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      }
+    ]
+  },
+  {
+    "customer_id": "C015",
+    "name": "Benjamin Scott",
+    "email": "ben.scott@email.com",
+    "phone": "+1-303-555-0115",
+    "tier": "silver",
+    "orders": [
+      {
+        "order_id": "O1015",
+        "item": "Canon EOS M50 Camera",
+        "category": "electronics",
+        "price": 579,
+        "order_date": "2026-06-04",
+        "delivered_date": "2026-06-10",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "paypal"
+      }
+    ]
+  },
+  {
+    "customer_id": "C016",
+    "name": "Grace Hall",
+    "email": "grace.hall@email.com",
+    "phone": "+1-303-555-0116",
+    "tier": "gold",
+    "orders": [
+      {
+        "order_id": "O1016",
+        "item": "Bose SoundLink Speaker",
+        "category": "electronics",
+        "price": 129,
+        "order_date": "2026-06-10",
+        "delivered_date": "2026-06-16",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      },
+      {
+        "order_id": "O1017",
+        "item": "Apple iPad Pro 12.9",
+        "category": "electronics",
+        "price": 1099,
+        "order_date": "2026-06-08",
+        "delivered_date": "2026-06-14",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      },
+      {
+        "order_id": "O1018",
+        "item": "Levi's 501 Jeans",
+        "category": "clothing",
+        "price": 80,
+        "order_date": "2026-05-15",
+        "delivered_date": "2026-05-21",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "paypal"
+      },
+      {
+        "order_id": "O1019",
+        "item": "Razer BlackWidow Keyboard",
+        "category": "electronics",
+        "price": 140,
+        "order_date": "2026-06-19",
+        "delivered_date": null,
+        "status": "shipped",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      }
+    ]
+  },
+  {
+    "customer_id": "C017",
+    "name": "Henry Adams",
+    "email": "henry.adams@email.com",
+    "phone": "+1-303-555-0117",
+    "tier": "silver",
+    "orders": [
+      {
+        "order_id": "O1020",
+        "item": "Apple Watch Series 9",
+        "category": "electronics",
+        "price": 500,
+        "order_date": "2026-06-04",
+        "delivered_date": "2026-06-10",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      },
+      {
+        "order_id": "O1021",
+        "item": "Garmin Forerunner 265",
+        "category": "electronics",
+        "price": 501,
+        "order_date": "2026-06-04",
+        "delivered_date": "2026-06-10",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      }
+    ]
+  },
+  {
+    "customer_id": "C018",
+    "name": "Ella Nguyen",
+    "email": "ella.nguyen@email.com",
+    "phone": "+1-303-555-0118",
+    "tier": "bronze",
+    "orders": [
+      {
+        "order_id": "O1022",
+        "item": "Patagonia Down Jacket",
+        "category": "clothing",
+        "price": 180,
+        "order_date": "2026-05-16",
+        "delivered_date": "2026-05-22",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "debit_card"
+      },
+      {
+        "order_id": "O1023",
+        "item": "North Face Backpack",
+        "category": "accessories",
+        "price": 90,
+        "order_date": "2026-05-15",
+        "delivered_date": "2026-05-21",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "debit_card"
+      }
+    ]
+  },
+  {
+    "customer_id": "C019",
+    "name": "Liam Walker",
+    "email": "liam.walker@email.com",
+    "phone": "+1-303-555-0119",
+    "tier": "gold",
+    "orders": [
+      {
+        "order_id": "O1024",
+        "item": "Sony PlayStation 5",
+        "category": "electronics",
+        "price": 499,
+        "order_date": "2026-06-18",
+        "delivered_date": null,
+        "status": "processing",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      },
+      {
+        "order_id": "O1025",
+        "item": "DualSense Controller",
+        "category": "electronics",
+        "price": 69,
+        "order_date": "2026-06-12",
+        "delivered_date": "2026-06-18",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      }
+    ]
+  },
+  {
+    "customer_id": "C020",
+    "name": "Ava Robinson",
+    "email": "ava.robinson@email.com",
+    "phone": "+1-303-555-0120",
+    "tier": "silver",
+    "orders": [
+      {
+        "order_id": "O1026",
+        "item": "Ray-Ban Aviator Sunglasses",
+        "category": "accessories",
+        "price": 160,
+        "order_date": "2026-06-06",
+        "delivered_date": "2026-06-12",
+        "status": "delivered",
+        "final_sale": true,
+        "already_refunded": false,
+        "payment_method": "paypal"
+      },
+      {
+        "order_id": "O1027",
+        "item": "Fossil Gen 6 Watch",
+        "category": "accessories",
+        "price": 145,
+        "order_date": "2026-06-06",
+        "delivered_date": "2026-06-12",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": true,
+        "payment_method": "paypal"
+      }
+    ]
+  },
+  {
+    "customer_id": "C021",
+    "name": "Noah Carter",
+    "email": "noah.carter@email.com",
+    "phone": "+1-303-555-0121",
+    "tier": "bronze",
+    "orders": [
+      {
+        "order_id": "O1028",
+        "item": "LG OLED 55\" TV",
+        "category": "electronics",
+        "price": 1499,
+        "order_date": "2026-06-09",
+        "delivered_date": "2026-06-15",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      },
+      {
+        "order_id": "O1029",
+        "item": "HDMI 2.1 Cable",
+        "category": "electronics",
+        "price": 20,
+        "order_date": "2026-06-09",
+        "delivered_date": "2026-06-15",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      }
+    ]
+  },
+  {
+    "customer_id": "C022",
+    "name": "Zoe Mitchell",
+    "email": "zoe.mitchell@email.com",
+    "phone": "+1-303-555-0122",
+    "tier": "gold",
+    "orders": [
+      {
+        "order_id": "O1030",
+        "item": "Dyson Supersonic Hair Dryer",
+        "category": "electronics",
+        "price": 429,
+        "order_date": "2026-06-19",
+        "delivered_date": null,
+        "status": "shipped",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      },
+      {
+        "order_id": "O1031",
+        "item": "Kindle Paperwhite",
+        "category": "electronics",
+        "price": 139,
+        "order_date": "2026-04-04",
+        "delivered_date": "2026-04-10",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "paypal"
+      }
+    ]
+  },
+  {
+    "customer_id": "C023",
+    "name": "Lucas Perez",
+    "email": "lucas.perez@email.com",
+    "phone": "+1-303-555-0123",
+    "tier": "silver",
+    "orders": [
+      {
+        "order_id": "O1032",
+        "item": "Louis Vuitton Wallet",
+        "category": "luxury",
+        "price": 720,
+        "order_date": "2026-06-03",
+        "delivered_date": "2026-06-09",
+        "status": "delivered",
+        "final_sale": true,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      },
+      {
+        "order_id": "O1033",
+        "item": "Hermès Silk Scarf",
+        "category": "luxury",
+        "price": 650,
+        "order_date": "2026-06-03",
+        "delivered_date": "2026-06-09",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      }
+    ]
+  },
+  {
+    "customer_id": "C024",
+    "name": "Chloe Evans",
+    "email": "chloe.evans@email.com",
+    "phone": "+1-303-555-0124",
+    "tier": "bronze",
+    "orders": [
+      {
+        "order_id": "O1034",
+        "item": "Casio G-Shock Watch",
+        "category": "accessories",
+        "price": 45,
+        "order_date": "2026-06-11",
+        "delivered_date": "2026-06-17",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "debit_card"
+      }
+    ]
+  },
+  {
+    "customer_id": "C025",
+    "name": "Mason Reed",
+    "email": "mason.reed@email.com",
+    "phone": "+1-303-555-0125",
+    "tier": "gold",
+    "orders": [
+      {
+        "order_id": "O1035",
+        "item": "Samsung 27\" Monitor",
+        "category": "electronics",
+        "price": 320,
+        "order_date": "2026-05-30",
+        "delivered_date": "2026-06-05",
+        "status": "returned",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      },
+      {
+        "order_id": "O1036",
+        "item": "Anker Wireless Charger",
+        "category": "electronics",
+        "price": 35,
+        "order_date": "2026-06-10",
+        "delivered_date": "2026-06-16",
+        "status": "delivered",
+        "final_sale": false,
+        "already_refunded": false,
+        "payment_method": "credit_card"
+      }
+    ]
+  }
+]

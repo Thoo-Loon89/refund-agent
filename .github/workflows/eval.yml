@@ -1,0 +1,29 @@
+name: eval
+
+# Runs the offline evaluation suite on every push / PR. This is the CI gate the
+# README and Loom call out: the offline suite needs no API key because it
+# exercises the deterministic parts that actually make the decision — the policy
+# engine, reconcile() (engine-overrides-model), the injection heuristic, and the
+# tool layer. The job fails if any of the 33 offline checks regress.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  offline-evals:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run offline eval suite (no API key needed)
+        run: python -m evals.run_eval

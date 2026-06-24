@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Secrets
+.env
+
+# Runtime data (persisted logs/traces/attacks — regenerated at runtime)
+backend/data/runtime_store.json
+
+# Node / frontend
+node_modules/
+frontend/dist/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Local Claude Code settings (machine-specific permission grants)
+.claude/settings.local.json

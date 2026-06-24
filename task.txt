@@ -1,0 +1,23 @@
+The Challenge: A Finished Agentic Product
+Your task is to build a fully functional web application: An AI Customer Support Agent that processes or denies e-commerce refunds. You will use an LLM (such as ChatGPT or Claude) to help you efficiently generate the boilerplate code, system architecture, and datasets needed to build three key components:
+1. Synthetic Data Storage: Use an LLM to generate a mock CRM database (15 customer profiles and order histories) and a corporate "Refund Policy" text document with strict rules (e.g., final sale items cannot be refunded, refunds over $500 require human escalation).
+2. The Backend & Agent Layer: A local API server (FastAPI, Express, etc.) hosting an agent loop (using LangGraph, CrewAI, or raw function calling). The agent must dynamically call tools to query your synthetic database and validate user requests against the policy. Assume customers will plead, argue, or try to talk the agent into breaking the rules — the written policy is the source of truth and the agent should hold the line.
+3. The Frontend UI: A clean interface (React / SPA Framework, or Streamlit) containing a customer chat window to test the agent, alongside an admin dashboard displaying the agent's internal reasoning logs.
+Deliverable Requirements (Definition of "Finished")
+
+To be considered complete, your submission must meet the following baseline:
+Loom Video Walkthrough: A comprehensive Loom video recording (maximum 5 minutes) demonstrating the application in action. The video must show the live user interface, a successful run of the agent loop, and a brief walkthrough of the trace for one run - including a step that failed or retried and how you’d debug it from the logs. Call out what’s in the trace (tool I/O, retries, token cost, latency and what you’d add before prod.
+Live URL (optional): A deployed link is a nice bonus, not a requirement. If you don't include one, no problem — just be ready to run the app and walk us through the demo / code live in the final round.
+What We Are Evaluating
+● Product Completeness: Does the system work out of the box with zero configuration errors?
+● Agent Resilience: How does the agent handle edge cases, policy violations, or aggressive user prompt injections trying to force an unauthorized refund?
+● System Architecture: Clean separation of concerns between your UI, API, and LLM orchestration layer.
+Timeline & Next Steps
+
+We estimate this project will take roughly 8 to 10 hours of active development. To give you ample flexibility around your current schedule, please return the completed repository within 9 calendar days.
+
+Following a successful review, you're in the home stretch: a single 1-hour session to demo your product and talk through your decisions with the team. We respect the respect the effort this project takes, so we keep it this final round
+
+Please reply to confirm if this timeline works for you or if you have any questions. We are excited to see what you build!
+Best regards,
+Recruitment Team l Loopp
